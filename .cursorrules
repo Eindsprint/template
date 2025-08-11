@@ -1,0 +1,63 @@
+# Project Rules for Next.js with Tailwind CSS
+
+## Package Management
+- Always use `pnpm` instead of npm or yarn
+- Use `pnpm add` for installing packages, `pnpm run` for scripts
+
+## Framework & Language
+- This is a Next.js 15.4.6 project with App Router
+- Use TypeScript for all new files (.tsx, .ts)
+- Use React functional components with hooks
+- Use server components by default, add 'use client' only when needed
+
+## Styling & Design
+- Use **Mantine UI components** as the primary UI library
+- Use Tailwind CSS for custom styling and layout only
+- Use our custom design tokens defined in globals.css:
+  - Primary: `primary-dark-blue` (#00A1A6), `primary-blue` (#08BCC1), `primary-lightest-blue` (#E6F8F9)
+  - Secondary: `secondary-darkest-moss` (#4F7469), `secondary-moss` (#C6D7D2), `secondary-camel` (#F1D3B2), `secondary-sand` (#F3EDEA), `secondary-light-sand` (#F7F5F5)
+- Prefer Mantine components over custom Tailwind implementations
+- Use Mantine CSS modules (*.module.css) for component-specific styling when needed
+- For icons, use @tabler/icons-react (Mantine's recommended icon library)
+- Never use inline styles - use Mantine props, Tailwind classes, or CSS modules
+- Responsive design: use Mantine's responsive props and breakpoints
+
+## Code Organization
+- New React components go in `src/components/`
+- Use absolute imports with `@/` prefix (configured in tsconfig.json)
+- Keep components small and focused on single responsibility
+- Export components as named exports, not default exports
+
+## Development Practices
+- Always add proper TypeScript types - no `any` types
+- Use ESLint rules - fix all linting errors before committing
+- Add error handling to async operations
+- Use meaningful variable and function names
+- Add JSDoc comments for complex functions
+
+## File Structure
+- Pages in `src/app/` (App Router)
+- Components in `src/components/`
+- Types in `src/types/` or co-located with components
+- Utilities in `src/lib/` or `src/utils/`
+
+## Performance
+- Use Next.js Image component for images
+- Lazy load components when appropriate
+- Use React.memo for expensive components
+- Prefer server components over client components
+
+## Mantine Specific
+- Always wrap app with MantineProvider
+- Use Mantine theme customization for colors and styling
+- Import icons from @tabler/icons-react
+- Use CSS modules (*.module.css) for complex component styling
+- Follow Mantine component patterns and props
+
+## Don't Do
+- Don't install packages without asking first
+- Don't create unnecessary custom CSS - prefer Mantine components and Tailwind
+- Don't use class components - functional components only
+- Don't use npm or yarn - pnpm only
+- Don't ignore TypeScript errors
+- Don't add UI libraries other than Mantine without explicit request

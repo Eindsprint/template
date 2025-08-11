@@ -3,6 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Primary colors */
+  --primary-dark-blue: #00A1A6;
+  --primary-blue: #08BCC1;
+  --primary-lightest-blue: #E6F8F9;
+  
+  /* Secondary colors */
+  --secondary-darkest-moss: #4F7469;
+  --secondary-moss: #C6D7D2;
+  --secondary-camel: #F1D3B2;
+  --secondary-sand: #F3EDEA;
+  --secondary-light-sand: #F7F5F5;
 }
 
 @theme inline {
@@ -10,6 +22,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Primary colors */
+  --color-primary-dark-blue: var(--primary-dark-blue);
+  --color-primary-blue: var(--primary-blue);
+  --color-primary-lightest-blue: var(--primary-lightest-blue);
+  
+  /* Secondary colors */
+  --color-secondary-darkest-moss: var(--secondary-darkest-moss);
+  --color-secondary-moss: var(--secondary-moss);
+  --color-secondary-camel: var(--secondary-camel);
+  --color-secondary-sand: var(--secondary-sand);
+  --color-secondary-light-sand: var(--secondary-light-sand);
 }
 
 @media (prefers-color-scheme: dark) {

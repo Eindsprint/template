@@ -2,8 +2,65 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-secondary-light-sand">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        
+        {/* Color Palette Demo */}
+        <div className="w-full max-w-4xl mb-8">
+          <h2 className="text-2xl font-bold text-secondary-darkest-moss mb-4">Design Tokens</h2>
+          
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-primary-dark-blue mb-2">Primary</h3>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="w-32 h-20 bg-primary-dark-blue rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Dark Blue</p>
+                <p className="text-xs text-gray-600">#00A1A6</p>
+              </div>
+              <div className="text-center">
+                <div className="w-32 h-20 bg-primary-blue rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Blue</p>
+                <p className="text-xs text-gray-600">#08BCC1</p>
+              </div>
+              <div className="text-center">
+                <div className="w-32 h-20 bg-primary-lightest-blue rounded-lg mb-2 border border-gray-300"></div>
+                <p className="text-sm font-medium">Lightest Blue</p>
+                <p className="text-xs text-gray-600">#E6F8F9</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-primary-dark-blue mb-2">Secondary</h3>
+            <div className="grid grid-cols-5 gap-4">
+              <div className="text-center">
+                <div className="w-24 h-16 bg-secondary-darkest-moss rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Darkest Moss</p>
+                <p className="text-xs text-gray-600">#4F7469</p>
+              </div>
+              <div className="text-center">
+                <div className="w-24 h-16 bg-secondary-moss rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Moss</p>
+                <p className="text-xs text-gray-600">#C6D7D2</p>
+              </div>
+              <div className="text-center">
+                <div className="w-24 h-16 bg-secondary-camel rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Camel</p>
+                <p className="text-xs text-gray-600">#F1D3B2</p>
+              </div>
+              <div className="text-center">
+                <div className="w-24 h-16 bg-secondary-sand rounded-lg mb-2"></div>
+                <p className="text-sm font-medium">Sand</p>
+                <p className="text-xs text-gray-600">#F3EDEA</p>
+              </div>
+              <div className="text-center">
+                <div className="w-24 h-16 bg-secondary-light-sand rounded-lg mb-2 border border-gray-300"></div>
+                <p className="text-sm font-medium">Light Sand</p>
+                <p className="text-xs text-gray-600">#F7F5F5</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <Image
           className="dark:invert"
           src="/next.svg"
