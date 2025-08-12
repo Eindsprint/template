@@ -5,7 +5,7 @@ import classes from './Button.module.css';
 
 // Define allowed variants and sizes
 type ButtonVariant = 'primary' | 'secondary' | 'transparent';
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type ButtonSize = 'sm' | 'md' | 'lg';
 
 // Custom Button props - restrict certain Mantine props
 interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {

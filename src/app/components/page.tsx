@@ -1,4 +1,4 @@
-import { Container, Title, Text, SimpleGrid, Paper, Stack } from '@mantine/core';
+import { Container, Title, Text, Stack, Table, TableTr, TableTd, TableTh, TableThead, TableTbody } from '@mantine/core';
 
 interface ColorToken {
   name: string;
@@ -94,76 +94,58 @@ const colorTokens: ColorToken[] = [
   }
 ];
 
-function ColorCard({ token }: { token: ColorToken }) {
-  return (
-    <Paper p="md" radius="md" style={{ height: '100%', border: '1px solid var(--mantine-color-gray-3)' }}>
-      <Stack gap="sm">
+export default function ColorsPage() {
+  const rows = colorTokens.map((token) => (
+    <TableTr key={token.name}>
+      <TableTd style={{ width: '80px' }}>
         <div
           style={{
-            width: '100%',
-            height: 80,
+            width: '60px',
+            height: '60px',
             backgroundColor: token.value,
-            borderRadius: 'var(--mantine-radius-sm)',
+            borderRadius: '8px',
             border: '1px solid var(--mantine-color-gray-3)'
           }}
         />
-        <div>
-          <Text fw={600} size="sm" c="dark">
-            {token.name}
-          </Text>
-          <Text size="xs" c="dimmed" ff="monospace" mt={4} style={{ backgroundColor: 'var(--mantine-color-gray-1)', padding: '2px 6px', borderRadius: '4px' }}>
-            {token.tailwindClass}
-          </Text>
-          <Text size="xs" c="dimmed" ff="monospace" mt={4}>
-            {token.value}
-          </Text>
-          <Text size="xs" c="gray" mt={8}>
-            {token.description}
-          </Text>
-        </div>
-      </Stack>
-    </Paper>
-  );
-}
+      </TableTd>
+      <TableTd>
+        <Text size="sm" ff="monospace" style={{ 
+          backgroundColor: 'var(--mantine-color-gray-1)', 
+          padding: '4px 8px', 
+          borderRadius: '4px',
+          display: 'inline-block'
+        }}>
+          {token.tailwindClass}
+        </Text>
+      </TableTd>
+      <TableTd>
+        <Text size="sm" ff="monospace" c="dimmed">
+          {token.value}
+        </Text>
+      </TableTd>
+    </TableTr>
+  ));
 
-export default function ComponentsPage() {
   return (
     <Container size="lg" py="xl">
       <Stack gap="xl">
         <div>
-          <Title order={1} mb="md">Design Tokens</Title>
-          <Text c="dimmed">
-            Our design system color palette used throughout the application. 
-            These tokens ensure consistency and maintainability across all components.
+          <Title order={1} mb="md">Colors</Title>
+          <Text c="dimmed" size="lg">
+            Complete overview of all color tokens in our design system with their properties and usage guidelines.
           </Text>
         </div>
 
-        <div>
-          <Title order={2} mb="lg">Primary Colors</Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
-            {colorTokens.slice(0, 3).map((token) => (
-              <ColorCard key={token.name} token={token} />
-            ))}
-          </SimpleGrid>
-        </div>
-
-        <div>
-          <Title order={2} mb="lg">Secondary Colors</Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
-            {colorTokens.slice(3, 8).map((token) => (
-              <ColorCard key={token.name} token={token} />
-            ))}
-          </SimpleGrid>
-        </div>
-
-        <div>
-          <Title order={2} mb="lg">Greyscale</Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="md">
-            {colorTokens.slice(8).map((token) => (
-              <ColorCard key={token.name} token={token} />
-            ))}
-          </SimpleGrid>
-        </div>
+        <Table verticalSpacing="xl" withRowBorders={false}>
+          <TableThead>
+            <TableTr>
+              <TableTh>Preview</TableTh>
+              <TableTh>Class Name</TableTh>
+              <TableTh>Hex Value</TableTh>
+            </TableTr>
+          </TableThead>
+          <TableTbody>{rows}</TableTbody>
+        </Table>
       </Stack>
     </Container>
   );

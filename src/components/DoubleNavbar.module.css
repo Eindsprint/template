@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   background-color: var(--mantine-color-white);
-  height: 750px;
+  height: 100vh;
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -46,8 +46,8 @@
 
 .mainLink[data-active],
 .mainLink[data-active]:hover {
-  background-color: var(--mantine-color-blue-light);
-  color: var(--mantine-color-blue-light-color);
+  background-color: var(--primary-blue);
+  color: white;
 }
 
 .title {
@@ -66,7 +66,6 @@
   display: flex;
   justify-content: center;
   height: 60px;
-  padding-top: var(--mantine-spacing-md);
   border-bottom: 1px solid var(--mantine-color-gray-3);
   margin-bottom: var(--mantine-spacing-xl);
 }
@@ -74,8 +73,8 @@
 .link {
   display: block;
   text-decoration: none;
-  border-top-right-radius: var(--mantine-radius-md);
-  border-bottom-right-radius: var(--mantine-radius-md);
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
   color: var(--mantine-color-gray-7);
   padding: 0 var(--mantine-spacing-md);
   font-size: var(--mantine-font-size-sm);
@@ -92,7 +91,7 @@
 
 .link[data-active],
 .link[data-active]:hover {
-  border-left-color: var(--mantine-color-blue-filled);
-  background-color: var(--mantine-color-blue-filled);
-  color: var(--mantine-color-white);
+  border-left-color: var(--secondary-sand);
+  background-color: var(--secondary-sand);
+  color: var(--mantine-color-dark);
 }

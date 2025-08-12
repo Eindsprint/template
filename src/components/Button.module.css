@@ -11,13 +11,13 @@
 
 .secondary {
   background-color: white !important;
-  border-color: var(--secondary-sand) !important;
+  border-color: var(--light-grey) !important;
   color: var(--darker-grey) !important;
 }
 
 .secondary:hover {
-  background-color: var(--secondary-sand) !important;
-  border-color: var(--secondary-sand) !important;
+  background-color: white !important;
+  border-color: var(--grey) !important;
 }
 
 .transparent {
@@ -28,4 +28,27 @@
 
 .transparent:hover {
   background-color: var(--secondary-sand) !important;
+}
+
+/* Disabled and Loading states */
+.primary:disabled,
+.primary[data-loading="true"],
+.secondary:disabled,
+.secondary[data-loading="true"],
+.transparent:disabled,
+.transparent[data-loading="true"] {
+  background-color: var(--light-grey) !important;
+  border-color: var(--light-grey) !important;
+  color: white !important;
+}
+
+.primary:disabled:hover,
+.primary[data-loading="true"]:hover,
+.secondary:disabled:hover,
+.secondary[data-loading="true"]:hover,
+.transparent:disabled:hover,
+.transparent[data-loading="true"]:hover {
+  background-color: var(--light-grey) !important;
+  border-color: var(--light-grey) !important;
+  color: white !important;
 }
