@@ -1,0 +1,31 @@
+.primary {
+  background-color: var(--primary-blue) !important;
+  border-color: var(--primary-blue) !important;
+  color: white !important;
+}
+
+.primary:hover {
+  background-color: var(--primary-dark-blue) !important;
+  border-color: var(--primary-dark-blue) !important;
+}
+
+.secondary {
+  background-color: white !important;
+  border-color: var(--secondary-sand) !important;
+  color: var(--darker-grey) !important;
+}
+
+.secondary:hover {
+  background-color: var(--secondary-sand) !important;
+  border-color: var(--secondary-sand) !important;
+}
+
+.transparent {
+  background-color: transparent !important;
+  color: var(--darker-grey) !important;
+  border: none !important;
+}
+
+.transparent:hover {
+  background-color: var(--secondary-sand) !important;
+}

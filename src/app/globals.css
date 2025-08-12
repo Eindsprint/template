@@ -15,6 +15,14 @@
   --secondary-camel: #F1D3B2;
   --secondary-sand: #F3EDEA;
   --secondary-light-sand: #F7F5F5;
+  
+  /* Greyscale colors */
+  --almost-black: #001010;
+  --darker-grey: #4d5555;
+  --dark-grey: #808686;
+  --grey: #b2b6b6;
+  --light-grey: #d9dbdb;
+  --almost-white: #f2f3f3;
 }
 
 @theme inline {
@@ -34,6 +42,14 @@
   --color-secondary-camel: var(--secondary-camel);
   --color-secondary-sand: var(--secondary-sand);
   --color-secondary-light-sand: var(--secondary-light-sand);
+  
+  /* Greyscale colors */
+  --color-almost-black: var(--almost-black);
+  --color-darker-grey: var(--darker-grey);
+  --color-dark-grey: var(--dark-grey);
+  --color-grey: var(--grey);
+  --color-light-grey: var(--light-grey);
+  --color-almost-white: var(--almost-white);
 }
 
 @media (prefers-color-scheme: dark) {
