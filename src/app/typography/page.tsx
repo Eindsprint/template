@@ -1,4 +1,4 @@
-import { Container, Title, Text, Stack, Table, TableTr, TableTd, TableTh, TableThead, TableTbody } from '@mantine/core';
+import { Title, Text, Stack, SimpleGrid, Group, Divider } from '@mantine/core';
 
 interface TypographyToken {
   name: string;
@@ -132,50 +132,50 @@ const typographyTokens: TypographyToken[] = [
 
 
 export default function TypographyPage() {
-  const rows = typographyTokens.map((token) => (
-    <TableTr key={token.name}>
-      <TableTd style={{ textAlign: 'left', width: 'auto' }}>
-        <div style={{
-          fontSize: token.fontSize,
-          fontWeight: token.fontWeight,
-          lineHeight: token.lineHeight,
-          color: 'var(--darker-grey)',
-          whiteSpace: 'nowrap'
-        }}>
-          {token.example}
-        </div>
-      </TableTd>
-      <TableTd style={{ width: 'auto' }}>
-        <Text size="sm" ff="monospace" style={{ 
-          backgroundColor: 'var(--mantine-color-gray-1)', 
-          padding: '4px 8px', 
-          borderRadius: '4px',
-          display: 'inline-block'
-        }}>
-          {token.cssClass}
-        </Text>
-      </TableTd>
-      <TableTd style={{ width: 'auto' }}>
-        <Text size="sm" c="dimmed">
-          {token.fontSize}
-        </Text>
-      </TableTd>
-      <TableTd style={{ width: 'auto' }}>
-        <Text size="sm" c="dimmed">
-          {token.fontWeight}
-        </Text>
-      </TableTd>
-      <TableTd style={{ width: 'auto' }}>
-        <Text size="sm" c="dimmed">
-          {token.lineHeight}
-        </Text>
-      </TableTd>
-    </TableTr>
+  const displayTokens = typographyTokens.filter(token => 
+    token.name.includes('Display')
+  );
+  
+  const headingTokens = typographyTokens.filter(token => 
+    token.name.includes('Heading')
+  );
+  
+  const bodyTokens = typographyTokens.filter(token => 
+    token.name.includes('Body') || token.name === 'Caption'
+  );
+  
+  const buttonTokens = typographyTokens.filter(token => 
+    token.name.includes('Button')
+  );
+
+  const createGridItems = (tokens: TypographyToken[]) => tokens.map((token) => (
+    <Stack key={token.name} gap="sm">
+      <div style={{
+        fontSize: token.fontSize,
+        fontWeight: token.fontWeight,
+        lineHeight: token.lineHeight,
+        color: 'var(--darker-grey)',
+        whiteSpace: 'nowrap',
+        minHeight: '60px',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        {token.example}
+      </div>
+      <Text size="sm" ff="monospace" style={{ 
+        backgroundColor: 'var(--mantine-color-gray-1)', 
+        padding: '4px 8px', 
+        borderRadius: '4px',
+        display: 'inline-block',
+        alignSelf: 'flex-start'
+      }}>
+        {token.cssClass}
+      </Text>
+    </Stack>
   ));
 
   return (
-    <Container size="lg" py="xl">
-      <Stack gap="xl">
+    <Stack gap="xl">
         <div>
           <Title order={1} mb="md">Typography System</Title>
           <Text c="dimmed" size="lg">
@@ -183,19 +183,39 @@ export default function TypographyPage() {
           </Text>
         </div>
 
-        <Table verticalSpacing="xl" withRowBorders={false}>
-          <TableThead>
-            <TableTr>
-              <TableTh>Preview</TableTh>
-              <TableTh>Class Name</TableTh>
-              <TableTh>Size</TableTh>
-              <TableTh>Weight</TableTh>
-              <TableTh>Line Height</TableTh>
-            </TableTr>
-          </TableThead>
-          <TableTbody>{rows}</TableTbody>
-        </Table>
-      </Stack>
-    </Container>
+        <div>
+          <Title order={2} mb="lg" size="h3">Display</Title>
+          <SimpleGrid cols={{ base: 1, sm: 2, xl: 3 }} spacing="md" verticalSpacing="xl">
+            {createGridItems(displayTokens)}
+          </SimpleGrid>
+        </div>
+
+        <Divider />
+
+        <div>
+          <Title order={2} mb="lg" size="h3">Headings</Title>
+          <SimpleGrid cols={{ base: 1, sm: 2, xl: 3 }} spacing="md" verticalSpacing="xl">
+            {createGridItems(headingTokens)}
+          </SimpleGrid>
+        </div>
+
+        <Divider />
+
+        <div>
+          <Title order={2} mb="lg" size="h3">Body Text</Title>
+          <SimpleGrid cols={{ base: 1, sm: 2, xl: 3 }} spacing="md" verticalSpacing="xl">
+            {createGridItems(bodyTokens)}
+          </SimpleGrid>
+        </div>
+
+        <Divider />
+
+        <div>
+          <Title order={2} mb="lg" size="h3">Button Text</Title>
+          <SimpleGrid cols={{ base: 1, sm: 2, xl: 3 }} spacing="md" verticalSpacing="xl">
+            {createGridItems(buttonTokens)}
+          </SimpleGrid>
+        </div>
+    </Stack>
   );
 }

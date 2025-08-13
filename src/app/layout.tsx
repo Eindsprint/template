@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, Container } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { DoubleNavbar } from '@/components/DoubleNavbar';
 import "./globals.css";
@@ -33,7 +33,9 @@ export default function RootLayout({
         <MantineProvider defaultColorScheme="light">
           <DoubleNavbar />
           <main style={{ marginLeft: '300px', minHeight: '100vh' }}>
-            {children}
+            <Container size={{ base: 'lg', xl: 'fluid' }} py="xl" style={{ maxWidth: '1600px' }}>
+              {children}
+            </Container>
           </main>
         </MantineProvider>
       </body>

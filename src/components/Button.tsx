@@ -4,7 +4,7 @@ import React from 'react';
 import classes from './Button.module.css';
 
 // Define allowed variants and sizes
-type ButtonVariant = 'primary' | 'secondary' | 'transparent';
+type ButtonVariant = 'primary' | 'secondary' | 'text';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 // Custom Button props - restrict certain Mantine props
@@ -52,10 +52,10 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
             variant: 'outline' as const,
             className: `${classes.secondary} ${className || ''}`
           };
-        case 'transparent':
+        case 'text':
           return {
             variant: 'subtle' as const,
-            className: `${classes.transparent} ${className || ''}`
+            className: `${classes.text} ${className || ''}`
           };
         default:
           return {

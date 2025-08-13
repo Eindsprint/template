@@ -20,14 +20,15 @@
   border-color: var(--grey) !important;
 }
 
-.transparent {
+.text {
   background-color: transparent !important;
-  color: var(--darker-grey) !important;
+  color: var(--primary-blue) !important;
   border: none !important;
 }
 
-.transparent:hover {
-  background-color: var(--secondary-sand) !important;
+.text:hover {
+  background-color: transparent !important;
+  color: var(--primary-dark-blue) !important;
 }
 
 /* Disabled and Loading states */
@@ -35,8 +36,8 @@
 .primary[data-loading="true"],
 .secondary:disabled,
 .secondary[data-loading="true"],
-.transparent:disabled,
-.transparent[data-loading="true"] {
+.text:disabled,
+.text[data-loading="true"] {
   background-color: var(--light-grey) !important;
   border-color: var(--light-grey) !important;
   color: white !important;
@@ -46,8 +47,8 @@
 .primary[data-loading="true"]:hover,
 .secondary:disabled:hover,
 .secondary[data-loading="true"]:hover,
-.transparent:disabled:hover,
-.transparent[data-loading="true"]:hover {
+.text:disabled:hover,
+.text[data-loading="true"]:hover {
   background-color: var(--light-grey) !important;
   border-color: var(--light-grey) !important;
   color: white !important;
