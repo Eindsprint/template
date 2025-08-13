@@ -27,7 +27,7 @@
 
 .main {
   flex: 1;
-  background-color: var(--mantine-color-gray-0);
+  background-color: var(--secondary-light-sand);
 }
 
 .mainLink {
@@ -46,8 +46,8 @@
 
 .mainLink[data-active],
 .mainLink[data-active]:hover {
-  background-color: var(--primary-blue);
-  color: white;
+  background-color: var(--secondary-sand);
+  color: var(--mantine-color-gray-7);
 }
 
 .title {
