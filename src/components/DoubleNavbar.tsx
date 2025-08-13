@@ -26,7 +26,8 @@ const getLinksForSection = (activeSection: string) => {
         { name: 'Colors', href: '/components' },
         { name: 'Buttons', href: '/buttons' },
         { name: 'Typography', href: '/typography' },
-        { name: 'Icons', href: '/icons' }
+        { name: 'Icons', href: '/icons' },
+        { name: 'Tables', href: '/tables' }
       ];
     case 'Home':
       return [
@@ -78,7 +79,7 @@ export function DoubleNavbar() {
     if (currentLink) return currentLink.label;
     
     // Then check if the current path belongs to any section's sub-links
-    const componentsLinks = ['/buttons', '/typography', '/icons', '/forms', '/cards', '/navigation', '/layout', '/grids'];
+    const componentsLinks = ['/buttons', '/typography', '/icons', '/tables', '/forms', '/cards', '/navigation', '/layout', '/grids'];
     if (componentsLinks.includes(pathname)) {
       return 'Components';
     }

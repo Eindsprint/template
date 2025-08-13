@@ -33,7 +33,7 @@ export default function RootLayout({
         <MantineProvider defaultColorScheme="light">
           <DoubleNavbar />
           <main style={{ marginLeft: '300px', minHeight: '100vh' }}>
-            <Container size={{ base: 'lg', xl: 'fluid' }} py="xl" style={{ maxWidth: '1600px' }}>
+            <Container size={{ base: 'lg', xl: 'fluid' }} p="xl" style={{ maxWidth: '1600px' }}>
               {children}
             </Container>
           </main>

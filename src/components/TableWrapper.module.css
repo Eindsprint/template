@@ -1,0 +1,11 @@
+.table[data-striped="true"] tbody tr:nth-of-type(odd) {
+  background-color: var(--secondary-light-sand) !important;
+}
+
+.table {
+  overflow: hidden;
+}
+
+.table[data-checkboxes="true"] tbody tr[data-selected="true"] {
+  background-color: var(--primary-lightest-blue) !important;
+}
