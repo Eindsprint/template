@@ -216,7 +216,7 @@ export default function ColorsPage() {
     <Stack gap="xl">
         <div>
           <Title order={1} mb="md">Colors</Title>
-          <Text c="dimmed" size="lg">
+          <Text style={{ color: 'var(--grey)' }} size="lg">
             Complete overview of all color tokens in our design system with their properties and usage guidelines.
           </Text>
         </div>

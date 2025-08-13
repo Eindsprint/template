@@ -65,7 +65,7 @@ export default function TablesPage() {
     <Stack gap="xl">
       <div>
         <Title order={1} mb="md">Tables</Title>
-        <Text c="dimmed" size="lg">
+        <Text style={{ color: 'var(--grey)' }} size="lg">
           Example of table components with striped styling and proper data presentation.
         </Text>
       </div>

@@ -178,7 +178,7 @@ export default function TypographyPage() {
     <Stack gap="xl">
         <div>
           <Title order={1} mb="md">Typography System</Title>
-          <Text c="dimmed" size="lg">
+          <Text style={{ color: 'var(--grey)' }} size="lg">
             Complete overview of our typography scale with live examples and specifications.
           </Text>
         </div>

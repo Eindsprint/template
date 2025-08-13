@@ -209,7 +209,7 @@ export default function IconsPage() {
     <Stack gap="xl">
         <div>
           <Title order={1} mb="md">Icons</Title>
-          <Text c="dimmed" size="lg">
+          <Text style={{ color: 'var(--grey)' }} size="lg">
             Collection of Tabler Icons available in the design system. Click on any icon to copy its import statement.
           </Text>
         </div>
@@ -244,8 +244,8 @@ export default function IconsPage() {
                         />
                         <Text 
                           size="xs" 
-                          c="dark"
                           style={{ 
+                            color: 'var(--almost-black)',
                             textAlign: 'center',
                             fontSize: '11px',
                             fontFamily: 'monospace',

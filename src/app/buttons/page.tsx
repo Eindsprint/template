@@ -95,7 +95,7 @@ export default function ButtonsPage() {
     <Stack gap="xl">
         <div>
           <Title order={1} mb="md">Buttons</Title>
-          <Text c="dimmed" size="lg">
+          <Text style={{ color: 'var(--grey)' }} size="lg">
             Complete overview of our Button component with all variants, sizes, states, and usage examples.
           </Text>
         </div>
