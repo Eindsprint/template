@@ -1,6 +1,6 @@
 'use client';
 
-import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, Switch, Group } from '@mantine/core';
+import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, Switch, Group, Code } from '@mantine/core';
 import { TableWrapper, Checkbox } from '@/components';
 import { useState } from 'react';
 
@@ -26,6 +26,7 @@ export default function TablesPage() {
   const [striped, setStriped] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [highlightOnHover, setHighlightOnHover] = useState(false);
+  const [smallRows, setSmallRows] = useState(false);
 
   const handleSelectionChange = (selection: number[]) => {
     setSelectedRows(selection);
@@ -71,31 +72,53 @@ export default function TablesPage() {
 
       <div>
         <Title order={3} mb="md" size="h4">Settings</Title>
-        <Group mb="lg">
+        <Stack gap="sm" mb="lg">
           <Switch
-            label="Striped"
+            label={
+              <span>
+                Striped <Code>striped={striped.toString()}</Code>
+              </span>
+            }
             checked={striped}
             onChange={(event) => setStriped(event.currentTarget.checked)}
           />
           <Switch
-            label="Checkboxes"
+            label={
+              <span>
+                Checkboxes <Code>checkboxes={showCheckboxes.toString()}</Code>
+              </span>
+            }
             checked={showCheckboxes}
             onChange={(event) => setShowCheckboxes(event.currentTarget.checked)}
           />
           <Switch
-            label="Highlight on Hover"
+            label={
+              <span>
+                Highlight on Hover <Code>highlightOnHover={highlightOnHover.toString()}</Code>
+              </span>
+            }
             checked={highlightOnHover}
             onChange={(event) => setHighlightOnHover(event.currentTarget.checked)}
           />
-        </Group>
+          <Switch
+            label={
+              <span>
+                Small Rows <Code>verticalSpacing="{smallRows ? 'xs' : 'lg'}"</Code>
+              </span>
+            }
+            checked={smallRows}
+            onChange={(event) => setSmallRows(event.currentTarget.checked)}
+          />
+        </Stack>
       </div>
 
       <div>
-        <Title order={2} mb="lg" size="h3">Product Inventory</Title>
+        <Title order={2} mb="lg" size="h3">Example</Title>
         <TableWrapper 
           checkboxes={showCheckboxes} 
           striped={striped}
           highlightOnHover={highlightOnHover}
+          verticalSpacing={smallRows ? 'xs' : 'lg'}
           data={productData} 
           onSelectionChange={handleSelectionChange}
         >

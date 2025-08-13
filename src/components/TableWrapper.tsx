@@ -39,17 +39,18 @@ export const TableWrapper = ({
   };
 
   return (
-    <Table 
-      striped={striped}
-      highlightOnHover={highlightOnHover} 
-      verticalSpacing={verticalSpacing}
-      withTableBorder
-      className={classes.table}
-      data-striped={striped}
-      data-checkboxes={checkboxes}
-    >
-      {children}
-    </Table>
+    <div className={classes.wrapper}>
+      <Table 
+        striped={striped}
+        highlightOnHover={highlightOnHover} 
+        verticalSpacing={verticalSpacing}
+        className={classes.table}
+        data-striped={striped}
+        data-checkboxes={checkboxes}
+      >
+        {children}
+      </Table>
+    </div>
   );
 };
 
