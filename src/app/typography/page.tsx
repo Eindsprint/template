@@ -1,4 +1,4 @@
-import { Title, Text, Stack, SimpleGrid, Group, Divider } from '@mantine/core';
+import { Title, Text, Stack, SimpleGrid, Divider } from '@mantine/core';
 
 interface TypographyToken {
   name: string;

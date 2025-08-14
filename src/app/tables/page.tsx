@@ -4,14 +4,7 @@ import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, 
 import { TableWrapper, Checkbox } from '@/components';
 import { useState } from 'react';
 
-interface TableData {
-  id: number;
-  name: string;
-  email: string;
-  role: string;
-  status: string;
-  joinDate: string;
-}
+// TableData interface removed - not used in current implementation
 
 const productData = [
   { id: 1, product: 'Wireless Headphones', sku: 'WH-2024-001', price: '€89.99', stock: 42 },

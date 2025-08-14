@@ -3,13 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import {
-  IconCalendarStats,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
   IconHome2,
   IconPalette,
-  IconSettings,
-  IconUser,
 } from '@tabler/icons-react';
 import { Title, Tooltip, UnstyledButton } from '@mantine/core';
 import classes from './DoubleNavbar.module.css';
@@ -64,6 +59,7 @@ const getLinksForSection = (activeSection: string) => {
 export function DoubleNavbar() {
   const router = useRouter();
   const pathname = usePathname();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeLink, setActiveLink] = useState('Settings');
   const [mounted, setMounted] = useState(false);
 
@@ -133,6 +129,7 @@ export function DoubleNavbar() {
       <div className={classes.wrapper}>
         <div className={classes.aside}>
           <div className={classes.logo}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo/logo-union.svg" alt="Logo" width={36} height={36} />
           </div>
           {mainLinks}

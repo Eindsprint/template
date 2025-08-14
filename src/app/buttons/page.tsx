@@ -113,7 +113,7 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="primary"
+              variant={"primary"}
             </Text>
           </Stack>
           
@@ -134,7 +134,7 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="secondary"
+              variant={"secondary"}
             </Text>
           </Stack>
           
@@ -155,7 +155,7 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="text"
+              variant={"text"}
             </Text>
           </Stack>
         </SimpleGrid>

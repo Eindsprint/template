@@ -1,6 +1,6 @@
 'use client';
 
-import { Title, Text, Stack, SimpleGrid, Switch, Code, Group } from '@mantine/core';
+import { Title, Text, Stack, SimpleGrid, Switch } from '@mantine/core';
 import { BadgeWrapper } from '@/components';
 import { useState } from 'react';
 
@@ -89,7 +89,7 @@ export default function BadgesPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              state="success"
+              state={"success"}
             </Text>
           </Stack>
           
@@ -110,7 +110,7 @@ export default function BadgesPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              state="warning"
+              state={"warning"}
             </Text>
           </Stack>
           
@@ -131,7 +131,7 @@ export default function BadgesPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              state="information"
+              state={"information"}
             </Text>
           </Stack>
           
@@ -152,7 +152,7 @@ export default function BadgesPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              state="error"
+              state={"error"}
             </Text>
           </Stack>
         </SimpleGrid>

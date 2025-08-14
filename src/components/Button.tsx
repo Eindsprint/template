@@ -3,9 +3,8 @@ import { forwardRef } from 'react';
 import React from 'react';
 import classes from './Button.module.css';
 
-// Define allowed variants and sizes
+// Define allowed variants
 type ButtonVariant = 'primary' | 'secondary' | 'text';
-type ButtonSize = 'xs' | 'md';
 
 // Custom Button props - restrict certain Mantine props
 interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
@@ -26,14 +25,16 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
       
       // Check for non-standard icon sizes
       if (leftSection && React.isValidElement(leftSection)) {
-        const iconSize = leftSection.props?.size;
+        const iconProps = leftSection.props as { size?: number };
+        const iconSize = iconProps?.size;
         if (iconSize && iconSize !== 14) {
           console.warn(`Button: Icon size should be 14 for consistency. Current size: ${iconSize}`);
         }
       }
       
       if (rightSection && React.isValidElement(rightSection)) {
-        const iconSize = rightSection.props?.size;
+        const iconProps = rightSection.props as { size?: number };
+        const iconSize = iconProps?.size;
         if (iconSize && iconSize !== 14) {
           console.warn(`Button: Icon size should be 14 for consistency. Current size: ${iconSize}`);
         }

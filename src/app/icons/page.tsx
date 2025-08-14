@@ -1,7 +1,8 @@
 'use client';
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { Title, Text, Stack, SimpleGrid, Paper, Divider } from '@mantine/core';
+import { Title, Text, Stack, SimpleGrid, Divider } from '@mantine/core';
 import {
   // Basic UI Icons
   IconHome2, IconUser, IconSettings, IconSearch, IconBell, IconMail, IconPhone, IconMenu2,
@@ -13,9 +14,9 @@ import {
   IconChevronUp, IconChevronDown, IconCaretLeft, IconCaretRight, IconCaretUp, IconCaretDown,
   
   // Media Icons
-  IconPhoto, IconVideo, IconMusic, IconHeadphones, IconMicrophone, IconCamera, IconFilm,
-  IconVolume, IconVolumeOff, IconPlayerPlay, IconPlayerPause, IconPlayerStop, IconPlayerSkipForward,
-  IconPlayerSkipBack, IconShuffle, IconRepeat,
+  IconPhoto, IconVideo, IconMusic, IconHeadphones, IconMicrophone, IconCamera, IconMovie,
+  IconVolume, IconVolume2, IconPlayerPlay, IconPlayerPause, IconPlayerStop, IconPlayerSkipForward,
+  IconPlayerSkipBack, IconRefresh, IconArrowsShuffle,
   
   // Communication Icons
   IconMessage, IconMessageCircle, IconSend, IconBrandTwitter, IconBrandFacebook, IconBrandInstagram,
@@ -23,14 +24,14 @@ import {
   
   // File & Document Icons
   IconFile, IconFileText, IconFolder, IconFolderOpen, IconArchive, IconClipboard,
-  IconNotes, IconBook, IconBook2, IconNewspaper, IconPrinter, IconScan,
+  IconNotes, IconBook, IconBook2, IconNews, IconPrinter, IconScan,
   
   // System & Tools Icons
-  IconTool, IconTool as IconWrench, IconHammer, IconScrewdriver, IconPuzzle, IconKey, IconLock,
+  IconTool, IconTool as IconWrench, IconHammer, IconTools, IconPuzzle, IconKey, IconLock,
   IconLockOpen, IconShield, IconShieldCheck, IconEye, IconEyeOff, IconFingerprint,
   
   // Time & Calendar Icons
-  IconClock, IconCalendar, IconCalendarEvent, IconClock as IconTimer, IconAlarm, IconWatch,
+  IconClock, IconCalendar, IconCalendarEvent, IconClock as IconTimer, IconAlarm, IconClock as IconWatch,
   IconSun, IconMoon, IconSunset, IconSunrise,
   
   // Weather Icons
@@ -38,24 +39,24 @@ import {
   IconTemperature, IconDroplet, IconWind,
   
   // Shopping & Commerce Icons
-  IconShoppingCart, IconShoppingBag, IconCreditCard, IconCoin, IconReceipt, IconTag as IconPrice,
+  IconShoppingCart, IconShoppingBag, IconCreditCard, IconCoin, IconReceipt2, IconTag as IconPrice,
   IconGift, IconTruck, IconPackage, IconBarcode,
   
   // Location & Map Icons
-  IconMapPin, IconMap, IconRoute, IconCompass, IconGps, IconLocation, IconBuilding,
-  IconHome, IconOffice, IconCar, IconBus, IconTrain, IconPlane,
+  IconMapPin, IconMap, IconRoute2, IconCompass, IconNavigationFilled, IconMapPin as IconLocation, IconBuilding,
+  IconHome, IconBuilding as IconOffice, IconCar, IconBus, IconTrain, IconPlane,
   
   // Health & Medical Icons
-  IconHeart as IconHealth, IconFirstAid, IconPill, IconStethoscope, IconVaccine,
-  IconActivity, IconPulse, IconZodiacCancer,
+  IconHeart as IconHealth, IconFirstAidKit, IconPill, IconStethoscope, IconVaccine,
+  IconActivity, IconActivity as IconPulse, IconHeart as IconHealthcare,
   
   // Education & Learning Icons
-  IconSchool, IconCertificate, IconAward, IconMedal, IconTrophy, IconTarget,
-  IconBulb, IconBrain, IconAtom, IconMath,
+  IconSchool, IconCertificate, IconAward, IconMedal2, IconTrophy, IconTarget,
+  IconBulb, IconBrain, IconAtom, IconMathFunction,
   
   // Sports & Recreation Icons
-  IconBall, IconRun, IconSwimming, IconBike, IconTent, IconMountain, IconBeach,
-  IconGamepad, IconDice, IconChess, IconCards,
+  IconBallFootball, IconRun, IconSwimming, IconBike, IconTent, IconMountain, IconBeach,
+  IconDeviceGamepad2, IconDice5, IconChessBishop, IconPlayCard,
   
   // Technology Icons
   IconDeviceDesktop, IconDeviceLaptop, IconDeviceTablet, IconDeviceMobile, IconRouter,
@@ -72,7 +73,7 @@ import {
 
 interface IconItem {
   name: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<{ size?: number; stroke?: number; style?: React.CSSProperties }>;
   category: string;
 }
 

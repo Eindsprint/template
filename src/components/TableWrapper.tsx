@@ -10,7 +10,7 @@ interface TableWrapperProps {
   condensed?: boolean;
   striped?: boolean;
   checkboxes?: boolean;
-  data?: Array<Record<string, any>>;
+  data?: Array<Record<string, unknown>>;
   onSelectionChange?: (selectedIds: number[]) => void;
 }
 
@@ -29,6 +29,8 @@ export const TableWrapper = ({
     console.warn('TableWrapper: checkboxes prop requires data prop to be provided');
   }
 
+  // Row selection handler (only used when checkboxes are enabled)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleRowSelection = (id: number, checked: boolean) => {
     const newSelection = checked 
       ? [...selectedRows, id]
