@@ -23,14 +23,12 @@ const getLinksForSection = (activeSection: string) => {
         { name: 'Icons', href: '/design-system/icons' },
         { name: 'Buttons', href: '/design-system/buttons' },
         { name: 'Badges', href: '/design-system/badges' },
-        { name: 'Tables', href: '/design-system/tables' }
+        { name: 'Tables', href: '/design-system/tables' },
+        { name: 'Modals', href: '/design-system/modals' }
       ];
     case 'Home':
       return [
-        { name: 'Dashboard', href: '/dashboard' },
-        { name: 'Overview', href: '/overview' },
-        { name: 'Recent Activity', href: '/activity' },
-        { name: 'Quick Actions', href: '/actions' }
+        { name: 'Dashboard', href: '/dashboard' }
       ];
     case 'Analytics':
       return [
@@ -76,12 +74,12 @@ export function DoubleNavbar() {
     if (currentLink) return currentLink.label;
     
     // Then check if the current path belongs to any section's sub-links
-    const designSystemLinks = ['/design-system', '/design-system/typography', '/design-system/icons', '/design-system/buttons', '/design-system/badges', '/design-system/tables'];
+    const designSystemLinks = ['/design-system', '/design-system/typography', '/design-system/icons', '/design-system/buttons', '/design-system/badges', '/design-system/tables', '/design-system/modals'];
     if (designSystemLinks.includes(pathname) || pathname.startsWith('/design-system/')) {
       return 'Design system';
     }
     
-    const homeLinks = ['/dashboard', '/overview', '/activity', '/actions'];
+    const homeLinks = ['/dashboard'];
     if (homeLinks.includes(pathname)) {
       return 'Home';
     }

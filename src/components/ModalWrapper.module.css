@@ -1,0 +1,33 @@
+.modal {
+  /* Modal header styles */
+  & [data-modal-header] {
+    padding: var(--mantine-spacing-xl);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  /* Modal body styles */
+  & [data-modal-body] {
+    padding: var(--mantine-spacing-xl);
+  }
+
+  /* Modal title styles */
+  & [data-modal-title] {
+    font-size: var(--mantine-font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  /* Close button styles */
+  & [data-modal-close] {
+    color: var(--color-text-secondary);
+    
+    &:hover {
+      background-color: var(--color-bg-hover);
+    }
+  }
+
+  /* Overlay customization */
+  & + [data-modal-overlay] {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
