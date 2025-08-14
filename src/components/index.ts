@@ -12,3 +12,4 @@ export {
   ModalRoot,
   ModalOverlay
 } from './ModalWrapper';
+export { CodeBlockWithCopy } from './CodeBlockWithCopy';

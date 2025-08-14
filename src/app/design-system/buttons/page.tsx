@@ -1,7 +1,8 @@
 'use client';
 
 import { Title, Text, Stack, SimpleGrid, Switch } from '@mantine/core';
-import { ButtonWrapper } from '@/components';
+import { ButtonWrapper, CodeBlockWithCopy } from '@/components';
+import { IconHeart } from '@tabler/icons-react';
 import { useState } from 'react';
 
 export default function ButtonsPage() {
@@ -111,7 +112,7 @@ export default function ButtonsPage() {
       </div>
 
       <div>
-        <Title order={2} mb="lg" size="h3">Variants</Title>
+        <Title order={3} mb="md" size="h4">Example</Title>
         <SimpleGrid cols={3} spacing="lg">
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
@@ -176,6 +177,35 @@ export default function ButtonsPage() {
             </Text>
           </Stack>
         </SimpleGrid>
+      </div>
+
+      <div>
+        <Title order={3} mb="md" size="h4">Usage</Title>
+        <CodeBlockWithCopy code={`import { ButtonWrapper } from '@/components';
+
+// Primary variant
+<ButtonWrapper variant="primary"${disabled ? `
+  disabled` : ''}${loading ? `
+  loading` : ''}${small ? `
+  small` : ''}>
+  ${loading ? 'Loading...' : 'Button'}
+</ButtonWrapper>
+
+// Secondary variant
+<ButtonWrapper variant="secondary"${disabled ? `
+  disabled` : ''}${loading ? `
+  loading` : ''}${small ? `
+  small` : ''}>
+  ${loading ? 'Loading...' : 'Button'}
+</ButtonWrapper>
+
+// Text variant
+<ButtonWrapper variant="text"${disabled ? `
+  disabled` : ''}${loading ? `
+  loading` : ''}${small ? `
+  small` : ''}>
+  ${loading ? 'Loading...' : 'Button'}
+</ButtonWrapper>`} />
       </div>
     </Stack>
   );

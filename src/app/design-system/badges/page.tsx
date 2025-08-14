@@ -1,7 +1,7 @@
 'use client';
 
 import { Title, Text, Stack, SimpleGrid, Switch } from '@mantine/core';
-import { BadgeWrapper } from '@/components';
+import { BadgeWrapper, CodeBlockWithCopy } from '@/components';
 import { useState } from 'react';
 
 export default function BadgesPage() {
@@ -87,7 +87,7 @@ export default function BadgesPage() {
       </div>
 
       <div>
-        <Title order={2} mb="lg" size="h3">Variants</Title>
+        <Title order={3} mb="md" size="h4">Example</Title>
         <SimpleGrid cols={4} spacing="lg">
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
@@ -173,6 +173,39 @@ export default function BadgesPage() {
             </Text>
           </Stack>
         </SimpleGrid>
+      </div>
+
+      <div>
+        <Title order={3} mb="md" size="h4">Usage</Title>
+        <CodeBlockWithCopy code={`import { BadgeWrapper } from '@/components';
+
+// Success badge
+<BadgeWrapper state="success"${circle ? `
+  circle` : ''}${large ? `
+  large` : ''}>
+  ${circle ? '1' : 'Success'}
+</BadgeWrapper>
+
+// Warning badge
+<BadgeWrapper state="warning"${circle ? `
+  circle` : ''}${large ? `
+  large` : ''}>
+  ${circle ? '7' : 'Warning'}
+</BadgeWrapper>
+
+// Information badge
+<BadgeWrapper state="information"${circle ? `
+  circle` : ''}${large ? `
+  large` : ''}>
+  ${circle ? '9' : 'Information'}
+</BadgeWrapper>
+
+// Error badge
+<BadgeWrapper state="error"${circle ? `
+  circle` : ''}${large ? `
+  large` : ''}>
+  ${circle ? '3' : 'Error'}
+</BadgeWrapper>`} />
       </div>
     </Stack>
   );

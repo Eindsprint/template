@@ -1,7 +1,7 @@
 'use client';
 
 import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, Switch } from '@mantine/core';
-import { TableWrapper, Checkbox } from '@/components';
+import { TableWrapper, Checkbox, CodeBlockWithCopy } from '@/components';
 import { useState } from 'react';
 
 // TableData interface removed - not used in current implementation
@@ -179,7 +179,7 @@ export default function TablesPage() {
       </div>
 
       <div>
-        <Title order={2} mb="lg" size="h3">Example</Title>
+        <Title order={3} mb="md" size="h4">Example</Title>
         <TableWrapper 
           checkboxes={showCheckboxes} 
           striped={striped}
@@ -199,6 +199,55 @@ export default function TablesPage() {
           </TableThead>
           <TableTbody>{rows}</TableTbody>
         </TableWrapper>
+      </div>
+
+      <div>
+        <Title order={3} mb="md" size="h4">Usage</Title>
+        <CodeBlockWithCopy code={`import { TableWrapper, Checkbox } from '@/components';
+import { TableThead, TableTbody, TableTr, TableTh, TableTd } from '@mantine/core';
+
+const data = [
+  { id: 1, product: 'Wireless Headphones', sku: 'WH-2024-001', price: '€89.99', stock: 42 },
+  { id: 2, product: 'Gaming Mouse', sku: 'GM-2024-002', price: '€45.50', stock: 28 },
+  { id: 3, product: 'Mechanical Keyboard', sku: 'MK-2024-003', price: '€125.00', stock: 15 }
+];
+
+const rows = data.map((item) => (
+  <TableTr key={item.id}>${showCheckboxes ? `
+    <TableTd>
+      <Checkbox
+        checked={selectedRows.includes(item.id)}
+        onChange={(event) => handleSelection(event, item.id)}
+      />
+    </TableTd>` : ''}
+    <TableTd>{item.product}</TableTd>
+    <TableTd>{item.sku}</TableTd>
+    <TableTd>{item.price}</TableTd>
+    <TableTd>{item.stock}</TableTd>
+  </TableTr>
+));
+
+<TableWrapper${striped ? `
+  striped` : ''}${showCheckboxes ? `
+  checkboxes` : ''}${highlightOnHover ? `
+  highlightOnHover` : ''}${condensed ? `
+  condensed` : ''}
+  data={data}
+  onSelectionChange={handleSelectionChange}
+>
+  <TableThead>
+    <TableTr>${showCheckboxes ? `
+      <TableTh />` : ''}
+      <TableTh>Product</TableTh>
+      <TableTh>SKU</TableTh>
+      <TableTh>Price</TableTh>
+      <TableTh>Stock</TableTh>
+    </TableTr>
+  </TableThead>
+  <TableTbody>
+    {rows}
+  </TableTbody>
+</TableWrapper>`} />
       </div>
     </Stack>
   );

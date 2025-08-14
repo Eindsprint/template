@@ -1,7 +1,7 @@
 'use client';
 
-import { Title, Text, Stack, Switch, Code } from '@mantine/core';
-import { ModalWrapper, ButtonWrapper } from '@/components';
+import { Title, Text, Stack, Switch } from '@mantine/core';
+import { ModalWrapper, ButtonWrapper, CodeBlockWithCopy } from '@/components';
 import { useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -90,7 +90,7 @@ export default function ModalsPage() {
       </div>
 
       <div>
-        <Title order={2} mb="lg" size="h3">Example</Title>
+        <Title order={3} mb="md" size="h4">Example</Title>
         
         <ButtonWrapper variant="primary" onClick={open}>Open Modal</ButtonWrapper>
 
@@ -111,11 +111,7 @@ export default function ModalsPage() {
 
       <div>
         <Title order={3} mb="md" size="h4">Usage</Title>
-        <Text size="sm" mb="md" c="dimmed">
-          Code example with current settings:
-        </Text>
-        <Code block>
-{`import { ModalWrapper } from '@/components';
+        <CodeBlockWithCopy code={`import { ModalWrapper } from '@/components';
 
 <ModalWrapper 
   opened={opened} 
@@ -125,8 +121,7 @@ export default function ModalsPage() {
   fullScreen` : ''}
 >
   Your content here
-</ModalWrapper>`}
-        </Code>
+</ModalWrapper>`} />
       </div>
     </Stack>
   );

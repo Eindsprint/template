@@ -30,7 +30,7 @@ export default function LoginPage() {
       backgroundColor: 'var(--secondary-light-sand)'
     }}>
 
-        <Paper withBorder p="md" radius="md" style={{ width: '320px' }}>
+        <Paper withBorder p={24} radius="md" style={{ width: '320px' }}>
           <TextInput label="E-mailadres" required radius="md" />
           <PasswordInput label="Wachtwoord" required mt="md" radius="md" />
           <ButtonWrapper variant="primary" fullWidth mt="xl" onClick={handleLogin}>
