@@ -11,7 +11,7 @@ export default function ModalsPage() {
   const [small, setSmall] = useState(false);
 
   return (
-    <Stack gap="xl">
+    <Stack gap={40}>
       <div>
         <Title order={1} mb="md">Modals</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">

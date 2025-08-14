@@ -19,8 +19,8 @@ export function CodeBlockWithCopy({ code }: CodeBlockWithCopyProps) {
               position: 'absolute',
               color: copied ? 'var(--state-success)' : 'var(--foreground)',
               background: 'transparent', 
-              top: '8px', 
-              right: '8px',
+              top: 'var(--mantine-spacing-md)', 
+              right: 'var(--mantine-spacing-md)',
               zIndex: 1
             }}
           >
@@ -28,7 +28,7 @@ export function CodeBlockWithCopy({ code }: CodeBlockWithCopyProps) {
           </ActionIcon>
         )}
       </CopyButton>
-      <Code block>
+      <Code block style={{ padding: 'var(--mantine-spacing-md)' }}>
         {code}
       </Code>
     </div>

@@ -24,6 +24,7 @@ export const ModalWrapper = forwardRef<HTMLDivElement, ModalWrapperProps>(
         fullScreen={fullScreen}
         className={`${classes.modal} ${className || ''}`}
         zIndex={2000}
+        radius="md"
         {...props}
       />
     );

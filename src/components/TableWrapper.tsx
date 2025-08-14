@@ -46,6 +46,7 @@ export const TableWrapper = ({
         striped={striped}
         highlightOnHover={highlightOnHover} 
         verticalSpacing={condensed ? 'xs' : 'lg'}
+        horizontalSpacing="md"
         className={classes.table}
         data-striped={striped}
         data-checkboxes={checkboxes}

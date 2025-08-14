@@ -55,7 +55,7 @@ export default function TablesPage() {
   ));
 
   return (
-    <Stack gap="xl">
+    <Stack gap={40}>
       <div>
         <Title order={1} mb="md">Tables</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">

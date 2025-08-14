@@ -9,7 +9,7 @@ export default function BadgesPage() {
   const [large, setLarge] = useState(false);
 
   return (
-    <Stack gap="xl">
+    <Stack gap={40}>
       <div>
         <Title order={1} mb="md">Badges</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">
