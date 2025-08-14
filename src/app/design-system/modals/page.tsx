@@ -1,7 +1,7 @@
 'use client';
 
-import { Title, Text, Stack, Switch, Group, Code } from '@mantine/core';
-import { ModalWrapper, ModalHeader, ModalTitle, ModalCloseButton, ModalBody, ButtonWrapper } from '@/components';
+import { Title, Text, Stack, Switch, Code } from '@mantine/core';
+import { ModalWrapper, ButtonWrapper } from '@/components';
 import { useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -106,7 +106,7 @@ export default function ModalsPage() {
               This is an example modal using the ModalWrapper component.
             </Text>
             <Text>
-              The modal is always centered and has a default size of "lg".
+              The modal is always centered and has a default size of {'"'}lg{'"'}.
               You can customize the size and enable fullscreen mode.
             </Text>
             <Text size="sm" c="dimmed">
