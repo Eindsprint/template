@@ -7,7 +7,7 @@ import classes from './TableWrapper.module.css';
 interface TableWrapperProps {
   children: React.ReactNode;
   highlightOnHover?: boolean;
-  verticalSpacing?: 'xs' | 'lg';
+  condensed?: boolean;
   striped?: boolean;
   checkboxes?: boolean;
   data?: Array<Record<string, any>>;
@@ -17,7 +17,7 @@ interface TableWrapperProps {
 export const TableWrapper = ({ 
   children, 
   highlightOnHover = false, 
-  verticalSpacing = 'lg', 
+  condensed = false, 
   striped = false, 
   checkboxes = false,
   data = [],
@@ -43,7 +43,7 @@ export const TableWrapper = ({
       <Table 
         striped={striped}
         highlightOnHover={highlightOnHover} 
-        verticalSpacing={verticalSpacing}
+        verticalSpacing={condensed ? 'xs' : 'lg'}
         className={classes.table}
         data-striped={striped}
         data-checkboxes={checkboxes}

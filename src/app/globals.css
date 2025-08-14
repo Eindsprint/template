@@ -23,6 +23,12 @@
   --grey: #b2b6b6;
   --light-grey: #d9dbdb;
   --almost-white: #f2f3f3;
+  
+  /* State colors */
+  --state-error: #CD2232;
+  --state-success: #0FBA67;
+  --state-warning: #FFB800;
+  --state-information: #0FA5BA;
 }
 
 @theme inline {

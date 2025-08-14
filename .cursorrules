@@ -1,63 +1,161 @@
-# Project Rules for Next.js with Tailwind CSS
+# Cursor Rules for Design System Development
 
-## Package Management
-- Always use `pnpm` instead of npm or yarn
-- Use `pnpm add` for installing packages, `pnpm run` for scripts
+## Component Development Pattern
 
-## Framework & Language
-- This is a Next.js 15.4.6 project with App Router
-- Use TypeScript for all new files (.tsx, .ts)
-- Use React functional components with hooks
-- Use server components by default, add 'use client' only when needed
+When creating or modifying components in this design system:
 
-## Styling & Design
-- Use **Mantine UI components** as the primary UI library
-- Use Tailwind CSS for custom styling and layout only
-- Use our custom design tokens defined in globals.css:
-  - Primary: `primary-dark-blue` (#00A1A6), `primary-blue` (#08BCC1), `primary-lightest-blue` (#E6F8F9)
-  - Secondary: `secondary-darkest-moss` (#4F7469), `secondary-moss` (#C6D7D2), `secondary-camel` (#F1D3B2), `secondary-sand` (#F3EDEA), `secondary-light-sand` (#F7F5F5)
-- Prefer Mantine components over custom Tailwind implementations
-- Use Mantine CSS modules (*.module.css) for component-specific styling when needed
-- For icons, use @tabler/icons-react (Mantine's recommended icon library)
-- Never use inline styles - use Mantine props, Tailwind classes, or CSS modules
-- Responsive design: use Mantine's responsive props and breakpoints
+### 1. Component Structure
+- ALWAYS create a wrapper component that restricts props
+- NEVER allow open-ended string or number props
+- Use TypeScript unions for variant options
+- Prefer boolean props over string enums
 
-## Code Organization
-- New React components go in `src/components/`
-- Use absolute imports with `@/` prefix (configured in tsconfig.json)
-- Keep components small and focused on single responsibility
-- Export components as named exports, not default exports
+Example:
+```typescript
+// ✅ GOOD
+interface ComponentProps {
+  variant?: 'primary' | 'secondary' | 'text';
+  small?: boolean;  // Not size: 'xs' | 'sm' | 'md'
+  condensed?: boolean;  // Not spacing: 'tight' | 'normal'
+}
 
-## Development Practices
-- Always add proper TypeScript types - no `any` types
-- Use ESLint rules - fix all linting errors before committing
-- Add error handling to async operations
-- Use meaningful variable and function names
-- Add JSDoc comments for complex functions
+// ❌ BAD
+interface ComponentProps {
+  color?: string;
+  size?: string;
+  spacing?: number;
+}
+```
 
-## File Structure
-- Pages in `src/app/` (App Router)
-- Components in `src/components/`
-- Types in `src/types/` or co-located with components
-- Utilities in `src/lib/` or `src/utils/`
+### 2. Page Layout Pattern
 
-## Performance
-- Use Next.js Image component for images
-- Lazy load components when appropriate
-- Use React.memo for expensive components
-- Prefer server components over client components
+Component demo pages MUST follow this structure:
 
-## Mantine Specific
-- Always wrap app with MantineProvider
-- Use Mantine theme customization for colors and styling
-- Import icons from @tabler/icons-react
-- Use CSS modules (*.module.css) for complex component styling
-- Follow Mantine component patterns and props
+```typescript
+'use client';  // If using hooks
 
-## Don't Do
-- Don't install packages without asking first
-- Don't create unnecessary custom CSS - prefer Mantine components and Tailwind
-- Don't use class components - functional components only
-- Don't use npm or yarn - pnpm only
-- Don't ignore TypeScript errors
-- Don't add UI libraries other than Mantine without explicit request
+export default function ComponentPage() {
+  // Props state
+  const [propName, setPropName] = useState(false);
+
+  return (
+    <Stack gap="xl">
+      {/* 1. Header */}
+      <div>
+        <Title>Component Name</Title>
+        <Text style={{ color: 'var(--grey)' }}>Description</Text>
+      </div>
+
+      {/* 2. Props Section - ALWAYS FIRST */}
+      <div>
+        <Title order={3}>Props</Title>
+        {/* Switches with prop syntax */}
+      </div>
+
+      {/* 3. Variants Section */}
+      <div>
+        <Title order={2}>Variants</Title>
+        {/* Component examples */}
+      </div>
+    </Stack>
+  );
+}
+```
+
+### 3. Color Usage Rules
+
+STRICT COLOR RULES:
+- ONLY use CSS variables from globals.css
+- NEVER use Mantine color variables (--mantine-color-*)
+- NEVER hardcode hex/rgb colors except in globals.css
+- NEVER use CSS color names like 'red', 'blue'
+
+```typescript
+// ✅ GOOD
+style={{ color: 'var(--grey)' }}
+style={{ backgroundColor: 'var(--almost-white)' }}
+
+// ❌ BAD
+style={{ color: '#333' }}
+c="dimmed"
+color="blue"
+style={{ backgroundColor: 'var(--mantine-color-gray-1)' }}
+```
+
+### 4. Props Display
+
+Show props exactly as they'd be used in code:
+
+```typescript
+// Boolean props - no quotes
+<Text ff="monospace" style={propStyles}>
+  disabled={disabled.toString()}
+</Text>
+
+// String props - with quotes
+<Text ff="monospace" style={propStyles}>
+  variant="primary"
+</Text>
+
+// Conditional props
+<Text ff="monospace" style={propStyles}>
+  verticalSpacing="{condensed ? 'xs' : 'lg'}"
+</Text>
+```
+
+### 5. Switch Styling
+
+All prop switches use this exact pattern:
+
+```typescript
+<Switch
+  label={
+    <Text 
+      size="sm" 
+      ff="monospace"
+      style={{ 
+        backgroundColor: 'var(--almost-white)', 
+        padding: '4px 8px', 
+        borderRadius: '4px',
+        display: 'inline-flex',
+        alignItems: 'center'
+      }}
+    >
+      propName={propName.toString()}
+    </Text>
+  }
+  checked={propName}
+  onChange={(event) => setPropName(event.currentTarget.checked)}
+  styles={{ 
+    root: { display: 'flex', alignItems: 'center' },
+    track: { alignSelf: 'center' }
+  }}
+/>
+```
+
+## Key Principles
+
+1. **Consistency** - Every component follows the same patterns
+2. **Restriction** - Components can only be used as intended
+3. **Type Safety** - TypeScript enforces all rules
+4. **Design Tokens** - Only approved colors and sizes
+5. **Boolean Props** - Prefer booleans over enums
+
+## Component Checklist
+
+When reviewing or creating components:
+- [ ] Props are restricted via TypeScript
+- [ ] Boolean props used where appropriate
+- [ ] Only design system colors used
+- [ ] Props section appears first on demo page
+- [ ] Props displayed with correct syntax
+- [ ] Switches use consistent styling
+- [ ] Component added to navigation
+- [ ] Component exported from index.ts
+
+## Examples to Follow
+
+- **Button** - Shows variant restrictions and boolean `small` prop
+- **BadgeWrapper** - Shows state mapping to colors
+- **TableWrapper** - Shows multiple boolean props
+- Pages: **/badges**, **/tables**, **/buttons** - Show correct page structure

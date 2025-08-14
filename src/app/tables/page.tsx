@@ -1,6 +1,6 @@
 'use client';
 
-import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, Switch, Group, Code } from '@mantine/core';
+import { Title, Text, Stack, TableThead, TableTbody, TableTr, TableTh, TableTd, Switch } from '@mantine/core';
 import { TableWrapper, Checkbox } from '@/components';
 import { useState } from 'react';
 
@@ -26,7 +26,7 @@ export default function TablesPage() {
   const [striped, setStriped] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [highlightOnHover, setHighlightOnHover] = useState(false);
-  const [smallRows, setSmallRows] = useState(false);
+  const [condensed, setCondensed] = useState(false);
 
   const handleSelectionChange = (selection: number[]) => {
     setSelectedRows(selection);
@@ -66,48 +66,104 @@ export default function TablesPage() {
       <div>
         <Title order={1} mb="md">Tables</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">
-          Example of table components with striped styling and proper data presentation.
+          Interactive table component with configurable styling and behavior options.
         </Text>
       </div>
 
       <div>
-        <Title order={3} mb="md" size="h4">Settings</Title>
+        <Title order={3} mb="md" size="h4">Props</Title>
         <Stack gap="sm" mb="lg">
           <Switch
             label={
-              <span>
-                Striped <Code>striped={striped.toString()}</Code>
-              </span>
+              <Text 
+                size="sm" 
+                ff="monospace"
+                style={{ 
+                  backgroundColor: 'var(--almost-white)', 
+                  padding: '4px 8px', 
+                  borderRadius: '4px',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                striped={striped.toString()}
+              </Text>
             }
             checked={striped}
             onChange={(event) => setStriped(event.currentTarget.checked)}
+            styles={{ 
+              root: { display: 'flex', alignItems: 'center' },
+              track: { alignSelf: 'center' }
+            }}
           />
           <Switch
             label={
-              <span>
-                Checkboxes <Code>checkboxes={showCheckboxes.toString()}</Code>
-              </span>
+              <Text 
+                size="sm" 
+                ff="monospace"
+                style={{ 
+                  backgroundColor: 'var(--almost-white)', 
+                  padding: '4px 8px', 
+                  borderRadius: '4px',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                checkboxes={showCheckboxes.toString()}
+              </Text>
             }
             checked={showCheckboxes}
             onChange={(event) => setShowCheckboxes(event.currentTarget.checked)}
+            styles={{ 
+              root: { display: 'flex', alignItems: 'center' },
+              track: { alignSelf: 'center' }
+            }}
           />
           <Switch
             label={
-              <span>
-                Highlight on Hover <Code>highlightOnHover={highlightOnHover.toString()}</Code>
-              </span>
+              <Text 
+                size="sm" 
+                ff="monospace"
+                style={{ 
+                  backgroundColor: 'var(--almost-white)', 
+                  padding: '4px 8px', 
+                  borderRadius: '4px',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                highlightOnHover={highlightOnHover.toString()}
+              </Text>
             }
             checked={highlightOnHover}
             onChange={(event) => setHighlightOnHover(event.currentTarget.checked)}
+            styles={{ 
+              root: { display: 'flex', alignItems: 'center' },
+              track: { alignSelf: 'center' }
+            }}
           />
           <Switch
             label={
-              <span>
-                Small Rows <Code>verticalSpacing="{smallRows ? 'xs' : 'lg'}"</Code>
-              </span>
+              <Text 
+                size="sm" 
+                ff="monospace"
+                style={{ 
+                  backgroundColor: 'var(--almost-white)', 
+                  padding: '4px 8px', 
+                  borderRadius: '4px',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                condensed={condensed.toString()}
+              </Text>
             }
-            checked={smallRows}
-            onChange={(event) => setSmallRows(event.currentTarget.checked)}
+            checked={condensed}
+            onChange={(event) => setCondensed(event.currentTarget.checked)}
+            styles={{ 
+              root: { display: 'flex', alignItems: 'center' },
+              track: { alignSelf: 'center' }
+            }}
           />
         </Stack>
       </div>
@@ -118,7 +174,7 @@ export default function TablesPage() {
           checkboxes={showCheckboxes} 
           striped={striped}
           highlightOnHover={highlightOnHover}
-          verticalSpacing={smallRows ? 'xs' : 'lg'}
+          condensed={condensed}
           data={productData} 
           onSelectionChange={handleSelectionChange}
         >

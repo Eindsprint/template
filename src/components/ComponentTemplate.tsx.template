@@ -1,0 +1,72 @@
+import { ComponentName as MantineComponentName, ComponentNameProps as MantineComponentNameProps } from '@mantine/core';
+import { forwardRef } from 'react';
+import classes from './ComponentName.module.css';
+
+// Define allowed variants using TypeScript unions
+type ComponentVariant = 'variant1' | 'variant2' | 'variant3';
+
+// Custom Component props - restrict Mantine props and add our own
+interface ComponentNameProps extends Omit<MantineComponentNameProps, 'color' | 'size' | 'variant'> {
+  variant?: ComponentVariant;
+  // Prefer boolean props over enums
+  condensed?: boolean;
+  highlighted?: boolean;
+  // Add other restricted props here
+}
+
+export const ComponentName = forwardRef<HTMLDivElement, ComponentNameProps>(
+  ({ 
+    variant = 'variant1', 
+    condensed = false,
+    highlighted = false,
+    className,
+    children,
+    ...props 
+  }, ref) => {
+    
+    // Map variants to design system colors
+    const getVariantStyles = () => {
+      switch (variant) {
+        case 'variant1':
+          return {
+            backgroundColor: 'var(--primary-blue)',
+            color: 'white'
+          };
+        case 'variant2':
+          return {
+            backgroundColor: 'var(--secondary-light-sand)',
+            color: 'var(--almost-black)'
+          };
+        case 'variant3':
+          return {
+            backgroundColor: 'var(--almost-white)',
+            color: 'var(--darker-grey)'
+          };
+        default:
+          return {};
+      }
+    };
+
+    // Apply conditional styles based on boolean props
+    const getConditionalStyles = () => {
+      return {
+        ...(condensed && { padding: '4px 8px' }),
+        ...(highlighted && { border: '2px solid var(--primary-blue)' }),
+        ...getVariantStyles()
+      };
+    };
+
+    return (
+      <MantineComponentName
+        ref={ref}
+        className={`${classes.wrapper} ${className || ''}`}
+        style={getConditionalStyles()}
+        {...props}
+      >
+        {children}
+      </MantineComponentName>
+    );
+  }
+);
+
+ComponentName.displayName = 'ComponentName';

@@ -1,0 +1,19 @@
+.success {
+  background-color: var(--state-success) !important;
+  color: white !important;
+}
+
+.warning {
+  background-color: var(--state-warning) !important;
+  color: white !important;
+}
+
+.information {
+  background-color: var(--state-information) !important;
+  color: white !important;
+}
+
+.error {
+  background-color: var(--state-error) !important;
+  color: white !important;
+}

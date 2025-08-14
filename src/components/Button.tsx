@@ -5,19 +5,19 @@ import classes from './Button.module.css';
 
 // Define allowed variants and sizes
 type ButtonVariant = 'primary' | 'secondary' | 'text';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonSize = 'xs' | 'md';
 
 // Custom Button props - restrict certain Mantine props
 interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
   variant?: ButtonVariant;
-  size?: ButtonSize;
+  small?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
   disabled?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
-  ({ variant = 'primary', size = 'md', className, leftSection, rightSection, ...props }, ref) => {
+  ({ variant = 'primary', small = false, className, leftSection, rightSection, ...props }, ref) => {
     // Development warnings for incorrect usage
     if (process.env.NODE_ENV === 'development') {
       if (leftSection && rightSection) {
@@ -71,7 +71,7 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
       <MantineButton
         ref={ref}
         variant={config.variant}
-        size={size}
+        size={small ? 'xs' : 'md'}
         radius="xl"
         className={config.className}
         leftSection={leftSection}

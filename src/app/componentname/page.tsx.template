@@ -1,23 +1,25 @@
 'use client';
 
 import { Title, Text, Stack, SimpleGrid, Switch } from '@mantine/core';
-import { Button } from '@/components';
+import { ComponentName } from '@/components';
 import { useState } from 'react';
 
-export default function ButtonsPage() {
-  const [disabled, setDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [small, setSmall] = useState(false);
+export default function ComponentNamePage() {
+  // Props state management
+  const [condensed, setCondensed] = useState(false);
+  const [highlighted, setHighlighted] = useState(false);
 
   return (
     <Stack gap="xl">
+      {/* Page Header */}
       <div>
-        <Title order={1} mb="md">Buttons</Title>
+        <Title order={1} mb="md">Component Name</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">
-          Interactive button component with configurable variants and states.
+          Brief description of what this component does and when to use it.
         </Text>
       </div>
 
+      {/* Props Section - ALWAYS FIRST */}
       <div>
         <Title order={3} mb="md" size="h4">Props</Title>
         <Stack gap="sm">
@@ -34,11 +36,11 @@ export default function ButtonsPage() {
                   alignItems: 'center'
                 }}
               >
-                disabled={disabled.toString()}
+                condensed={condensed.toString()}
               </Text>
             }
-            checked={disabled}
-            onChange={(event) => setDisabled(event.currentTarget.checked)}
+            checked={condensed}
+            onChange={(event) => setCondensed(event.currentTarget.checked)}
             styles={{ 
               root: { display: 'flex', alignItems: 'center' },
               track: { alignSelf: 'center' }
@@ -57,34 +59,11 @@ export default function ButtonsPage() {
                   alignItems: 'center'
                 }}
               >
-                loading={loading.toString()}
+                highlighted={highlighted.toString()}
               </Text>
             }
-            checked={loading}
-            onChange={(event) => setLoading(event.currentTarget.checked)}
-            styles={{ 
-              root: { display: 'flex', alignItems: 'center' },
-              track: { alignSelf: 'center' }
-            }}
-          />
-          <Switch
-            label={
-              <Text 
-                size="sm" 
-                ff="monospace"
-                style={{ 
-                  backgroundColor: 'var(--almost-white)', 
-                  padding: '4px 8px', 
-                  borderRadius: '4px',
-                  display: 'inline-flex',
-                  alignItems: 'center'
-                }}
-              >
-                small={small.toString()}
-              </Text>
-            }
-            checked={small}
-            onChange={(event) => setSmall(event.currentTarget.checked)}
+            checked={highlighted}
+            onChange={(event) => setHighlighted(event.currentTarget.checked)}
             styles={{ 
               root: { display: 'flex', alignItems: 'center' },
               track: { alignSelf: 'center' }
@@ -93,14 +72,19 @@ export default function ButtonsPage() {
         </Stack>
       </div>
 
+      {/* Variants Section */}
       <div>
         <Title order={2} mb="lg" size="h3">Variants</Title>
         <SimpleGrid cols={3} spacing="lg">
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="primary" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <ComponentName 
+                variant="variant1" 
+                condensed={condensed}
+                highlighted={highlighted}
+              >
+                Variant 1 Content
+              </ComponentName>
             </div>
             <Text 
               size="sm" 
@@ -113,15 +97,19 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="primary"
+              variant="variant1"
             </Text>
           </Stack>
           
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="secondary" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <ComponentName 
+                variant="variant2" 
+                condensed={condensed}
+                highlighted={highlighted}
+              >
+                Variant 2 Content
+              </ComponentName>
             </div>
             <Text 
               size="sm" 
@@ -134,15 +122,19 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="secondary"
+              variant="variant2"
             </Text>
           </Stack>
           
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="text" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <ComponentName 
+                variant="variant3" 
+                condensed={condensed}
+                highlighted={highlighted}
+              >
+                Variant 3 Content
+              </ComponentName>
             </div>
             <Text 
               size="sm" 
@@ -155,7 +147,7 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant="text"
+              variant="variant3"
             </Text>
           </Stack>
         </SimpleGrid>
