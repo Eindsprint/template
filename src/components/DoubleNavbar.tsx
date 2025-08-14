@@ -5,6 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import {
   IconHome2,
   IconPalette,
+  IconLogout,
 } from '@tabler/icons-react';
 import { Title, Tooltip, UnstyledButton } from '@mantine/core';
 import classes from './DoubleNavbar.module.css';
@@ -130,7 +131,23 @@ export function DoubleNavbar() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo/logo-union.svg" alt="Logo" width={36} height={36} />
           </div>
-          {mainLinks}
+          <div style={{ flex: 1 }}>
+            {mainLinks}
+          </div>
+          <Tooltip
+            label="Uitloggen"
+            position="right"
+            withArrow
+            transitionProps={{ duration: 0 }}
+          >
+            <UnstyledButton
+              onClick={() => router.push('/login')}
+              className={classes.mainLink}
+              style={{ marginBottom: '20px' }}
+            >
+              <IconLogout size={22} stroke={1.5} />
+            </UnstyledButton>
+          </Tooltip>
         </div>
         <div className={classes.main}>
           <Title order={4} className={classes.title}>

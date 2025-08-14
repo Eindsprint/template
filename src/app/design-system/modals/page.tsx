@@ -105,19 +105,6 @@ export default function ModalsPage() {
             <Text>
               This is an example modal using the ModalWrapper component.
             </Text>
-            <Text>
-              The modal is always centered and has a default size of {'"'}lg{'"'}.
-              You can customize the size and enable fullscreen mode.
-            </Text>
-            <Text size="sm" c="dimmed">
-              Current settings:
-            </Text>
-            <Stack gap="xs">
-              <Code>small={small.toString()}</Code>
-              <Code>fullScreen={fullScreen.toString()}</Code>
-              <Code>centered (always true)</Code>
-              <Text size="xs" c="dimmed">Size: {small ? 'sm' : 'lg'}</Text>
-            </Stack>
           </Stack>
         </ModalWrapper>
       </div>

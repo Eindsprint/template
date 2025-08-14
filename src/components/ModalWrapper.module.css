@@ -10,11 +10,12 @@
     padding: var(--mantine-spacing-xl);
   }
 
-  /* Modal title styles */
+  /* Modal title styles - text-heading-medium */
   & [data-modal-title] {
-    font-size: var(--mantine-font-size-lg);
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--almost-black);
   }
 
   /* Close button styles */
