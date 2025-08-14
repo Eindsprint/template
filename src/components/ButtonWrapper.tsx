@@ -13,6 +13,7 @@ interface ButtonWrapperProps extends Omit<MantineButtonProps, 'variant' | 'size'
   fullWidth?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
