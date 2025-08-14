@@ -18,6 +18,13 @@ export default function BadgesPage() {
       </div>
 
       <div>
+        <Title order={3} mb="md" size="h4">Component</Title>
+        <Text ff="monospace" size="sm" style={{ color: 'var(--grey)', marginBottom: '1rem' }}>
+          BadgeWrapper • /src/components/BadgeWrapper.tsx
+        </Text>
+      </div>
+
+      <div>
         <Title order={3} mb="md" size="h4">Props</Title>
         <Stack gap="sm">
           <Switch
