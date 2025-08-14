@@ -124,7 +124,7 @@ Add new components to `DoubleNavbar.tsx`:
 ### Example Components to Reference
 - **BadgeWrapper** - Shows state variants with color mapping
 - **TableWrapper** - Shows boolean props for features
-- **Button** - Shows variant restrictions and prop transformation
+- **ButtonWrapper** - Shows variant restrictions and prop transformation
 
 ### Checklist for New Components
 

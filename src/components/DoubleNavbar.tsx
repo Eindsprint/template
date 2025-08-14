@@ -11,19 +11,19 @@ import classes from './DoubleNavbar.module.css';
 
 const mainLinksMockdata = [
   { icon: IconHome2, label: 'Home', href: '/' },
-  { icon: IconPalette, label: 'Components', href: '/components' },
+  { icon: IconPalette, label: 'Design system', href: '/design-system' },
 ];
 
 const getLinksForSection = (activeSection: string) => {
   switch (activeSection) {
-    case 'Components':
+    case 'Design system':
       return [
-        { name: 'Colors', href: '/components' },
-        { name: 'Buttons', href: '/buttons' },
-        { name: 'Typography', href: '/typography' },
-        { name: 'Icons', href: '/icons' },
-        { name: 'Tables', href: '/tables' },
-        { name: 'Badges', href: '/badges' }
+        { name: 'Colors', href: '/design-system' },
+        { name: 'Typography', href: '/design-system/typography' },
+        { name: 'Icons', href: '/design-system/icons' },
+        { name: 'Buttons', href: '/design-system/buttons' },
+        { name: 'Badges', href: '/design-system/badges' },
+        { name: 'Tables', href: '/design-system/tables' }
       ];
     case 'Home':
       return [
@@ -76,9 +76,9 @@ export function DoubleNavbar() {
     if (currentLink) return currentLink.label;
     
     // Then check if the current path belongs to any section's sub-links
-    const componentsLinks = ['/buttons', '/typography', '/icons', '/tables', '/badges', '/forms', '/cards', '/navigation', '/layout', '/grids'];
-    if (componentsLinks.includes(pathname)) {
-      return 'Components';
+    const designSystemLinks = ['/design-system', '/design-system/typography', '/design-system/icons', '/design-system/buttons', '/design-system/badges', '/design-system/tables'];
+    if (designSystemLinks.includes(pathname) || pathname.startsWith('/design-system/')) {
+      return 'Design system';
     }
     
     const homeLinks = ['/dashboard', '/overview', '/activity', '/actions'];

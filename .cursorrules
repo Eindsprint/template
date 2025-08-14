@@ -155,7 +155,7 @@ When reviewing or creating components:
 
 ## Examples to Follow
 
-- **Button** - Shows variant restrictions and boolean `small` prop
+- **ButtonWrapper** - Shows variant restrictions and boolean `small` prop
 - **BadgeWrapper** - Shows state mapping to colors
 - **TableWrapper** - Shows multiple boolean props
 - Pages: **/badges**, **/tables**, **/buttons** - Show correct page structure

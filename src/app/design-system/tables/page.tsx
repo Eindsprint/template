@@ -65,8 +65,18 @@ export default function TablesPage() {
 
       <div>
         <Title order={3} mb="md" size="h4">Component</Title>
-        <Text ff="monospace" size="sm" style={{ color: 'var(--grey)', marginBottom: '1rem' }}>
-          TableWrapper • /src/components/TableWrapper.tsx
+        <Text 
+          ff="monospace" 
+          size="sm" 
+          style={{ 
+            backgroundColor: 'var(--almost-white)', 
+            padding: '4px 8px', 
+            borderRadius: '4px',
+            display: 'inline-block',
+            marginBottom: '1rem'
+          }}
+        >
+          /src/components/TableWrapper.tsx
         </Text>
       </div>
 

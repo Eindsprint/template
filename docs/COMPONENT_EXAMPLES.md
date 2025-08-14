@@ -2,10 +2,10 @@
 
 This document provides detailed examples of our design system components and their implementation patterns.
 
-## Button Component
+## ButtonWrapper Component
 
 ### Overview
-The Button component demonstrates our wrapper pattern perfectly. It restricts the Mantine Button to only allow approved variants while maintaining all other functionality.
+The ButtonWrapper component demonstrates our wrapper pattern perfectly. It restricts the Mantine Button to only allow approved variants while maintaining all other functionality.
 
 ### Key Features
 - **Restricted variants**: Only `primary`, `secondary`, and `text` allowed
@@ -16,7 +16,7 @@ The Button component demonstrates our wrapper pattern perfectly. It restricts th
 ### Implementation Pattern
 ```typescript
 // Wrapper restricts props
-interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
+interface ButtonWrapperProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
   variant?: 'primary' | 'secondary' | 'text';
   small?: boolean;
 }

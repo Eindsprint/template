@@ -1,27 +1,36 @@
 'use client';
 
 import { Title, Text, Stack, SimpleGrid, Switch } from '@mantine/core';
-import { Button } from '@/components';
+import { BadgeWrapper } from '@/components';
 import { useState } from 'react';
 
-export default function ButtonsPage() {
-  const [disabled, setDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [small, setSmall] = useState(false);
+export default function BadgesPage() {
+  const [circle, setCircle] = useState(false);
+  const [large, setLarge] = useState(false);
 
   return (
     <Stack gap="xl">
       <div>
-        <Title order={1} mb="md">Buttons</Title>
+        <Title order={1} mb="md">Badges</Title>
         <Text style={{ color: 'var(--grey)' }} size="lg">
-          Interactive button component with configurable variants and states.
+          Badge components for displaying status and state information.
         </Text>
       </div>
 
       <div>
         <Title order={3} mb="md" size="h4">Component</Title>
-        <Text ff="monospace" size="sm" style={{ color: 'var(--grey)', marginBottom: '1rem' }}>
-          Button • /src/components/Button.tsx
+        <Text 
+          ff="monospace" 
+          size="sm" 
+          style={{ 
+            backgroundColor: 'var(--almost-white)', 
+            padding: '4px 8px', 
+            borderRadius: '4px',
+            display: 'inline-block',
+            marginBottom: '1rem'
+          }}
+        >
+          /src/components/BadgeWrapper.tsx
         </Text>
       </div>
 
@@ -41,11 +50,11 @@ export default function ButtonsPage() {
                   alignItems: 'center'
                 }}
               >
-                disabled={disabled.toString()}
+                circle={circle.toString()}
               </Text>
             }
-            checked={disabled}
-            onChange={(event) => setDisabled(event.currentTarget.checked)}
+            checked={circle}
+            onChange={(event) => setCircle(event.currentTarget.checked)}
             styles={{ 
               root: { display: 'flex', alignItems: 'center' },
               track: { alignSelf: 'center' }
@@ -64,34 +73,11 @@ export default function ButtonsPage() {
                   alignItems: 'center'
                 }}
               >
-                loading={loading.toString()}
+                large={large.toString()}
               </Text>
             }
-            checked={loading}
-            onChange={(event) => setLoading(event.currentTarget.checked)}
-            styles={{ 
-              root: { display: 'flex', alignItems: 'center' },
-              track: { alignSelf: 'center' }
-            }}
-          />
-          <Switch
-            label={
-              <Text 
-                size="sm" 
-                ff="monospace"
-                style={{ 
-                  backgroundColor: 'var(--almost-white)', 
-                  padding: '4px 8px', 
-                  borderRadius: '4px',
-                  display: 'inline-flex',
-                  alignItems: 'center'
-                }}
-              >
-                small={small.toString()}
-              </Text>
-            }
-            checked={small}
-            onChange={(event) => setSmall(event.currentTarget.checked)}
+            checked={large}
+            onChange={(event) => setLarge(event.currentTarget.checked)}
             styles={{ 
               root: { display: 'flex', alignItems: 'center' },
               track: { alignSelf: 'center' }
@@ -102,12 +88,12 @@ export default function ButtonsPage() {
 
       <div>
         <Title order={2} mb="lg" size="h3">Variants</Title>
-        <SimpleGrid cols={3} spacing="lg">
+        <SimpleGrid cols={4} spacing="lg">
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="primary" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <BadgeWrapper state="success" circle={circle} large={large}>
+                {circle ? '1' : 'Success'}
+              </BadgeWrapper>
             </div>
             <Text 
               size="sm" 
@@ -120,15 +106,15 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant={"primary"}
+              state={"success"}
             </Text>
           </Stack>
           
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="secondary" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <BadgeWrapper state="warning" circle={circle} large={large}>
+                {circle ? '7' : 'Warning'}
+              </BadgeWrapper>
             </div>
             <Text 
               size="sm" 
@@ -141,15 +127,15 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant={"secondary"}
+              state={"warning"}
             </Text>
           </Stack>
           
           <Stack gap="xs">
             <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
-              <Button variant="text" disabled={disabled} loading={loading} small={small}>
-                {loading ? 'Loading...' : 'Button'}
-              </Button>
+              <BadgeWrapper state="information" circle={circle} large={large}>
+                {circle ? '9' : 'Information'}
+              </BadgeWrapper>
             </div>
             <Text 
               size="sm" 
@@ -162,7 +148,28 @@ export default function ButtonsPage() {
                 alignSelf: 'flex-start'
               }}
             >
-              variant={"text"}
+              state={"information"}
+            </Text>
+          </Stack>
+          
+          <Stack gap="xs">
+            <div style={{ minHeight: '60px', display: 'flex', alignItems: 'center' }}>
+              <BadgeWrapper state="error" circle={circle} large={large}>
+                {circle ? '3' : 'Error'}
+              </BadgeWrapper>
+            </div>
+            <Text 
+              size="sm" 
+              ff="monospace"
+              style={{ 
+                backgroundColor: 'var(--almost-white)', 
+                padding: '4px 8px', 
+                borderRadius: '4px',
+                display: 'inline-block',
+                alignSelf: 'flex-start'
+              }}
+            >
+              state={"error"}
             </Text>
           </Stack>
         </SimpleGrid>

@@ -49,9 +49,9 @@ We use ONLY our defined color tokens. No exceptions.
 ```
 src/
 ├── components/           # Component wrappers with restrictions
-│   ├── Button.tsx       # Restricts to primary/secondary/text
-│   ├── BadgeWrapper.tsx # Maps states to design colors
-│   └── TableWrapper.tsx # Boolean props for features
+│   ├── ButtonWrapper.tsx # Restricts to primary/secondary/text
+│   ├── BadgeWrapper.tsx  # Maps states to design colors
+│   └── TableWrapper.tsx  # Boolean props for features
 ├── app/                 # Demo pages for each component
 │   ├── buttons/        # Shows Props + Variants
 │   ├── badges/         # Interactive prop toggles

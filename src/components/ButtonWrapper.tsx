@@ -1,13 +1,13 @@
 import { Button as MantineButton, ButtonProps as MantineButtonProps } from '@mantine/core';
 import { forwardRef } from 'react';
 import React from 'react';
-import classes from './Button.module.css';
+import classes from './ButtonWrapper.module.css';
 
 // Define allowed variants
 type ButtonVariant = 'primary' | 'secondary' | 'text';
 
-// Custom Button props - restrict certain Mantine props
-interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
+// Custom ButtonWrapper props - restrict certain Mantine props
+interface ButtonWrapperProps extends Omit<MantineButtonProps, 'variant' | 'size' | 'color' | 'radius'> {
   variant?: ButtonVariant;
   small?: boolean;
   fullWidth?: boolean;
@@ -15,7 +15,7 @@ interface CustomButtonProps extends Omit<MantineButtonProps, 'variant' | 'size' 
   disabled?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
+export const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   ({ variant = 'primary', small = false, className, leftSection, rightSection, ...props }, ref) => {
     // Development warnings for incorrect usage
     if (process.env.NODE_ENV === 'development') {
@@ -28,7 +28,7 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
         const iconProps = leftSection.props as { size?: number };
         const iconSize = iconProps?.size;
         if (iconSize && iconSize !== 14) {
-          console.warn(`Button: Icon size should be 14 for consistency. Current size: ${iconSize}`);
+          console.warn(`ButtonWrapper: Icon size should be 14 for consistency. Current size: ${iconSize}`);
         }
       }
       
@@ -36,7 +36,7 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
         const iconProps = rightSection.props as { size?: number };
         const iconSize = iconProps?.size;
         if (iconSize && iconSize !== 14) {
-          console.warn(`Button: Icon size should be 14 for consistency. Current size: ${iconSize}`);
+          console.warn(`ButtonWrapper: Icon size should be 14 for consistency. Current size: ${iconSize}`);
         }
       }
     }
@@ -83,4 +83,4 @@ export const Button = forwardRef<HTMLButtonElement, CustomButtonProps>(
   }
 );
 
-Button.displayName = 'Button';
+ButtonWrapper.displayName = 'ButtonWrapper';
